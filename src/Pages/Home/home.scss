@@ -27,10 +27,21 @@
     }
 
     &-main {
+        position: relative;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+    }
+
+    &-modal {
+        position: absolute;
+        width: 300px;
+        border: 1px solid black;
+        background-color: blue;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
     }
 }
 

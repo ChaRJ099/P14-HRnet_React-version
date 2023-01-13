@@ -1,7 +1,7 @@
-import Button from "react-bootstrap/Button";
+// import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import SelectMenu from "../Select-menu/select-menu";
-import { states } from "../../Data/data-mocked";
+import SelectState from "../SelectState/SelectState";
+import SelectDepartment from "../SelectDepartment/SelectDepartment";
 
 function CreateEmployeeForm() {
   return (
@@ -33,24 +33,12 @@ function CreateEmployeeForm() {
           <Form.Control type="text" placeholder="" />
         </Form.Group>
       </fieldset>
-      <SelectMenu label="State">
-        {states.map((state) => {
-          console.log(state.name);
-          return (
-            <option key={state.id} id={state.id} value={state.name}>
-              {state.name}
-            </option>
-          );
-        })}
-      </SelectMenu>
+      <SelectState />
+      <SelectDepartment />
       <Form.Group className="mb-3" controlId="formZipCode">
         <Form.Label>Zip Code</Form.Label>
         <Form.Control type="number" placeholder="" />
       </Form.Group>
-      <SelectMenu label="Department" />
-      <Button variant="primary" type="submit">
-        Submit
-      </Button>
     </Form>
   );
 }

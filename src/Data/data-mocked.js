@@ -302,18 +302,23 @@ export const states = [
 
 export const departments = [
   {
+    id: "dep0",
     name: "Sales",
   },
   {
+    id: "dep1",
     name: "Marketing",
   },
   {
+    id: "dep2",
     name: "Engineering",
   },
   {
+    id: "dep3",
     name: "Human Resources",
   },
   {
+    id: "dep4",
     name: "Legal",
   },
 ];
