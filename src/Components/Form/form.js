@@ -2,6 +2,7 @@
 import Form from "react-bootstrap/Form";
 import SelectState from "../SelectState/SelectState";
 import SelectDepartment from "../SelectDepartment/SelectDepartment";
+import DayPicker from "../../Components/Day-picker/dayPicker";
 
 function CreateEmployeeForm() {
   return (
@@ -17,6 +18,7 @@ function CreateEmployeeForm() {
       <Form.Group className="mb-3" controlId="formBirthdate">
         <Form.Label>Date of Birth</Form.Label>
         <Form.Control type="text" placeholder="" />
+        <DayPicker />
       </Form.Group>
       <Form.Group className="mb-3" controlId="formStartDate">
         <Form.Label>Start date</Form.Label>
