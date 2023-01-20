@@ -1,47 +1,76 @@
 // import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
+import {
+  FormGroup,
+  FormControl,
+  FormLabel,
+  TextField,
+  InputAdornment,
+} from "@mui/material";
+import InputTextGroup from "../InputTextGroup/input-text-group";
+import "./form.scss";
 import SelectState from "../SelectState/SelectState";
 import SelectDepartment from "../SelectDepartment/SelectDepartment";
-import DayPicker from "../../Components/Day-picker/dayPicker";
+import InputDatePicker from "../Date-picker/date-picker";
+// import { useState } from "react";
 
 function CreateEmployeeForm() {
   return (
-    <Form>
-      <Form.Group className="mb-3" controlId="formFirstname">
-        <Form.Label>Firstname</Form.Label>
-        <Form.Control type="text" placeholder="" />
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="formLastname">
-        <Form.Label>Lastname</Form.Label>
-        <Form.Control type="text" placeholder="" />
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="formBirthdate">
-        <Form.Label>Date of Birth</Form.Label>
-        <Form.Control type="text" placeholder="" />
-        <DayPicker />
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="formStartDate">
-        <Form.Label>Start date</Form.Label>
-        <Form.Control type="text" placeholder="" />
-      </Form.Group>
-      <fieldset>
-        <Form.Text className="text-muted">Address</Form.Text>
-        <Form.Group className="mb-3" controlId="formStreet">
-          <Form.Label>Street</Form.Label>
-          <Form.Control type="text" placeholder="" />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formCity">
-          <Form.Label>City</Form.Label>
-          <Form.Control type="text" placeholder="" />
-        </Form.Group>
+    <form>
+      <InputTextGroup
+        controlId={"formFirstname"}
+        label={"Firstname"}
+        type={"text"}
+      />
+      <InputTextGroup
+        controlId={"formLastname"}
+        label={"Lastname"}
+        type={"text"}
+      />
+      <InputDatePicker controlId={"formBirthdate"} label={"Date of Birth"} />
+      <InputDatePicker controlId={"formStartDate"} label={"Start date"} />
+      <fieldset className="form-address-container">
+        <legend className="text-muted">Address</legend>
+
+        <FormGroup className="" controleId="formStreet">
+          <FormLabel>Street</FormLabel>
+          <TextField
+            id="outlined-start-adornment"
+            sx={{ m: 1, width: "25ch" }}
+            // label="Street"
+            type="text"
+            variant="outlined"
+            margin="normal"
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start"></InputAdornment>
+              ),
+            }}
+          />
+        </FormGroup>
+        <FormGroup className="" controleId="formCity">
+          <FormLabel>City</FormLabel>
+          <TextField
+            id="outlined-start-adornment"
+            sx={{ m: 1, width: "25ch" }}
+            // label="Street"
+            type="text"
+            variant="outlined"
+            margin="normal"
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start"></InputAdornment>
+              ),
+            }}
+          />
+        </FormGroup>
+        <SelectState />
+        <FormGroup className="mb-3" controlId="formZipCode">
+          <FormLabel>Zip Code</FormLabel>
+          <FormControl type="number" placeholder="" />
+        </FormGroup>
       </fieldset>
-      <SelectState />
       <SelectDepartment />
-      <Form.Group className="mb-3" controlId="formZipCode">
-        <Form.Label>Zip Code</Form.Label>
-        <Form.Control type="number" placeholder="" />
-      </Form.Group>
-    </Form>
+    </form>
   );
 }
 

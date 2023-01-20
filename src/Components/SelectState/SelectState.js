@@ -1,20 +1,26 @@
-import Form from "react-bootstrap/Form";
+import { Select, Box, FormLabel, MenuItem, FormControl } from "@mui/material";
 import { states } from "../../Data/data-mocked";
 
 function SelectState() {
   return (
-    <div className="dropdown-container">
-      <span>States</span>
-      <Form.Select aria-label="Default select example">
-        {states.map((state) => {
-          return (
-            <option key={state.id} value={state.name}>
-              {state.name}
-            </option>
-          );
-        })}
-      </Form.Select>
-    </div>
+    <Box sx={{ minWidth: 120 }} className="dropdown-container">
+      <FormControl fullWidth>
+        <FormLabel id="demo-simple-select-label">State</FormLabel>
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          label="State"
+        >
+          {states.map((state) => {
+            return (
+              <MenuItem key={state.id} value={state.name}>
+                {state.name}
+              </MenuItem>
+            );
+          })}
+        </Select>
+      </FormControl>
+    </Box>
   );
 }
 
