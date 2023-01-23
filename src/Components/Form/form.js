@@ -1,11 +1,5 @@
 // import Button from "react-bootstrap/Button";
-import {
-  FormGroup,
-  FormControl,
-  FormLabel,
-  TextField,
-  InputAdornment,
-} from "@mui/material";
+import { FormGroup, FormControl, FormLabel } from "@mui/material";
 import InputTextGroup from "../InputTextGroup/input-text-group";
 import "./form.scss";
 import SelectState from "../SelectState/SelectState";
@@ -17,54 +11,27 @@ function CreateEmployeeForm() {
   return (
     <form>
       <InputTextGroup
-        controlId={"formFirstname"}
+        controlid={"formFirstname"}
         label={"Firstname"}
         type={"text"}
       />
       <InputTextGroup
-        controlId={"formLastname"}
+        controlid={"formLastname"}
         label={"Lastname"}
         type={"text"}
       />
-      <InputDatePicker controlId={"formBirthdate"} label={"Date of Birth"} />
-      <InputDatePicker controlId={"formStartDate"} label={"Start date"} />
+      <InputDatePicker controlid={"formBirthdate"} label={"Date of Birth"} />
+      <InputDatePicker controlid={"formStartDate"} label={"Start date"} />
       <fieldset className="form-address-container">
         <legend className="text-muted">Address</legend>
-
-        <FormGroup className="" controleId="formStreet">
-          <FormLabel>Street</FormLabel>
-          <TextField
-            id="outlined-start-adornment"
-            sx={{ m: 1, width: "25ch" }}
-            // label="Street"
-            type="text"
-            variant="outlined"
-            margin="normal"
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start"></InputAdornment>
-              ),
-            }}
-          />
-        </FormGroup>
-        <FormGroup className="" controleId="formCity">
-          <FormLabel>City</FormLabel>
-          <TextField
-            id="outlined-start-adornment"
-            sx={{ m: 1, width: "25ch" }}
-            // label="Street"
-            type="text"
-            variant="outlined"
-            margin="normal"
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start"></InputAdornment>
-              ),
-            }}
-          />
-        </FormGroup>
+        <InputTextGroup
+          controlid={"formStreet"}
+          label={"Street"}
+          type={"text"}
+        />
+        <InputTextGroup controlid={"formCity"} label={"City"} type={"text"} />
         <SelectState />
-        <FormGroup className="mb-3" controlId="formZipCode">
+        <FormGroup className="mb-3" controlid="formZipCode">
           <FormLabel>Zip Code</FormLabel>
           <FormControl type="number" placeholder="" />
         </FormGroup>

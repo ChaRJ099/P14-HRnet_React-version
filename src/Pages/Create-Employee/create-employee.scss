@@ -1,0 +1,43 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 290px;
+
+  &-input-group {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.home {
+  &-header {
+    display: flex;
+    justify-content: center;
+  }
+
+  &-nav {
+    display: flex;
+    justify-content: center;
+  }
+
+  &-title {
+    margin: 0px 0px 0.35em;
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-size: 1.5rem;
+    line-height: 1.334;
+    letter-spacing: 0em;
+  }
+
+  &-main {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &-container {
+    height: 100%;
+  }
+}

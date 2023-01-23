@@ -1,9 +1,18 @@
 import "./footer.scss";
+import WealthLogo from "../../Assets/logo_wealth_health.png";
+import { NavLink } from "react-router-dom";
 
 function Footer() {
   return (
     <footer className="footer">
-      <p className="footer__text">Copyright 2022 Wealth Health</p>
+      <NavLink to="/" className="header-logo-container">
+        <img
+          className="footer-logo"
+          src={WealthLogo}
+          alt="Wealth Health Logo"
+        />
+      </NavLink>
+      <p className="footer__text">Wealth Health | Copyright 2022</p>
     </footer>
   );
 }

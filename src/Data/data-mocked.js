@@ -21,13 +21,11 @@ export const states = [
   },
   {
     id: "state5",
-
     name: "Arkansas",
     abbreviation: "AR",
   },
   {
     id: "state6",
-
     name: "California",
     abbreviation: "CA",
   },
@@ -38,13 +36,11 @@ export const states = [
   },
   {
     id: "state8",
-
     name: "Connecticut",
     abbreviation: "CT",
   },
   {
     id: "state9",
-
     name: "Delaware",
     abbreviation: "DE",
   },

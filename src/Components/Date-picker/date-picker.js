@@ -1,27 +1,33 @@
-import React from "react";
-import { FormGroup, FormLabel } from "@mui/material";
+import * as React from "react";
+import { TextField, FormLabel, Stack } from "@mui/material";
 import "./date-picker.scss";
 
-import { useState } from "react";
-// import { format } from "date-fns";
-import DatePicker from "react-date-picker";
-// import "react-day-picker/dist/style.css";
+//       <div>
+//         {/* <DatePicker
+//           onChange={maFonction}
+//           value={value}
+//           className="custom-date-picker"
+//         /> */}
+//       </div>
 
-function InputDatePicker({ controlId, label }) {
-  const [value, onChange] = useState(new Date());
+export default function InputDatePicker({ label }) {
+  const maFonction = (event) => {
+    console.log("event date", event.target.value);
+  };
 
   return (
-    <FormGroup className="date-picker-container" controleId={controlId}>
+    <Stack component="form" noValidate spacing={3}>
       <FormLabel>{label}</FormLabel>
-      <div>
-        <DatePicker
-          onChange={onChange}
-          value={value}
-          className="custom-date-picker"
-        />
-      </div>
-    </FormGroup>
+      <TextField
+        id="date"
+        type="date"
+        defaultValue={new Date()}
+        sx={{ width: 267 }}
+        InputLabelProps={{
+          shrink: true,
+        }}
+        onChange={maFonction}
+      />
+    </Stack>
   );
 }
-
-export default InputDatePicker;
