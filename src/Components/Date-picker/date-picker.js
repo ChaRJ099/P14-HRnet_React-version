@@ -1,33 +1,22 @@
 import * as React from "react";
-import { TextField, FormLabel, Stack } from "@mui/material";
+import { FormGroup, TextField, FormLabel } from "@mui/material";
 import "./date-picker.scss";
 
-//       <div>
-//         {/* <DatePicker
-//           onChange={maFonction}
-//           value={value}
-//           className="custom-date-picker"
-//         /> */}
-//       </div>
-
-export default function InputDatePicker({ label }) {
-  const maFonction = (event) => {
-    console.log("event date", event.target.value);
-  };
-
+export default function InputDatePicker({ label, value, name }) {
   return (
-    <Stack component="form" noValidate spacing={3}>
+    <FormGroup noValidate spacing={3}>
       <FormLabel>{label}</FormLabel>
       <TextField
+        name={name}
         id="date"
         type="date"
-        defaultValue={new Date()}
+        value={value}
         sx={{ width: 267 }}
         InputLabelProps={{
           shrink: true,
         }}
-        onChange={maFonction}
+        className="custom-date-picker"
       />
-    </Stack>
+    </FormGroup>
   );
 }

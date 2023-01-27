@@ -3,47 +3,37 @@ import "./create-employee.scss";
 // import { NavLink } from "react-router-dom";
 import Header from "../../Components/Header/header";
 import CreateEmployeeForm from "../../Components/Form/form";
-import Button from "@mui/material/Button";
 import Modal from "../../Components/Modal/modal";
-import SimpleBackdrop from "../../Components/Backdrop/backdrop";
+// import SimpleBackdrop from "../../Components/Backdrop/backdrop";
 import Footer from "../../Components/Footer/footer";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
+// import employees from "../../"
+// import { getEmployee } from "../../Utils/services";
 
 function CreateEmployee() {
-  // const saveEmployee = () => {
-  //   const firstName = document.getElementById("first-name");
-  //   const lastName = document.getElementById("last-name");
-  //   const dateOfBirth = document.getElementById("date-of-birth");
-  //   const startDate = document.getElementById("start-date");
-  //   const department = document.getElementById("department");
-  //   const street = document.getElementById("street");
-  //   const city = document.getElementById("city");
-  //   const state = document.getElementById("state");
-  //   const zipCode = document.getElementById("zip-code");
-
-  //   const employees = JSON.parse(localStorage.getItem("employees")) || [];
-  //   const employee = {
-  //     firstName: firstName.value,
-  //     lastName: lastName.value,
-  //     dateOfBirth: dateOfBirth.value,
-  //     startDate: startDate.value,
-  //     department: department.value,
-  //     street: street.value,
-  //     city: city.value,
-  //     state: state.value,
-  //     zipCode: zipCode.value,
-  //   };
-  //   employees.push(employee);
-  //   localStorage.setItem("employees", JSON.stringify(employees));
-  //   // $("#confirmation").modal();
-  // };
-
   const [modalVisible, setModalVisible] = useState(false);
+  const [employee, setEmployee] = useState();
+  const [data, setData] = useState([]);
+
+
+  useEffect(() => {
+    fetch("../../local-json/employees.json", {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      }
+    }
+    )
+      .then((response) => setData(response.data))
+      .catch(err => console.log(err))
+  }, [])
 
   // toogle Form display true or false
   const toogleModal = (e) => {
     e.preventDefault();
-    return setModalVisible(!modalVisible);
+    console.log("test", employee);
+    setModalVisible(!modalVisible);
   };
 
   if (modalVisible) {
@@ -53,13 +43,13 @@ function CreateEmployee() {
         <main className="home-main">
           <h2 className="home-title">Create Employee</h2>
           <CreateEmployeeForm />
-          <Button type="button" variant="contained">
+          {/* <Button type="button" variant="contained">
             Submit
-          </Button>
+          </Button> */}
           <Modal onClick={toogleModal} />
         </main>
         <Footer />
-        <SimpleBackdrop />
+        <div className="modal-backdrop"></div>;
       </div>
     );
   } else {
@@ -68,10 +58,10 @@ function CreateEmployee() {
         <Header />
         <main className="home-main">
           <h2 className="home-title">Create Employee</h2>
-          <CreateEmployeeForm />
-          <Button variant="contained" onClick={toogleModal}>
+          <CreateEmployeeForm onClick={toogleModal} />
+          {/* <Button variant="contained" onClick={toogleModal}>
             Submit
-          </Button>
+          </Button> */}
         </main>
         <Footer />
       </div>
