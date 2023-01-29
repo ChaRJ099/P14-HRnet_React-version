@@ -13,6 +13,7 @@
     "@mui/x-data-grid": "^5.17.20",
     "@mui/x-data-grid-generator": "^5.17.20",
     "@mui/x-date-pickers": "^5.0.15",
+    "@reduxjs/toolkit": "^1.9.1",
     "@tanstack/react-table": "^8.7.6",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -26,7 +27,6 @@
     "react-router-dom": "^6.6.1",
     "react-scripts": "5.0.1",
     "redux": "^4.2.0",
-    "redux-devtools-extension": "^2.13.9",
     "sass": "^1.57.1",
     "styled-components": "^5.3.6",
     "web-vitals": "^2.1.4"
@@ -54,5 +54,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "redux-devtools-extension": "^2.13.9"
   }
 }

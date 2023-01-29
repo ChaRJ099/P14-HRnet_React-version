@@ -6,33 +6,15 @@ import CreateEmployeeForm from "../../Components/Form/form";
 import Modal from "../../Components/Modal/modal";
 // import SimpleBackdrop from "../../Components/Backdrop/backdrop";
 import Footer from "../../Components/Footer/footer";
-import { useState, useEffect } from "react";
-import axios from "axios";
-// import employees from "../../"
-// import { getEmployee } from "../../Utils/services";
+import { useState } from "react";
 
 function CreateEmployee() {
   const [modalVisible, setModalVisible] = useState(false);
-  const [employee, setEmployee] = useState();
-  const [data, setData] = useState([]);
-
-
-  useEffect(() => {
-    fetch("../../local-json/employees.json", {
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      }
-    }
-    )
-      .then((response) => setData(response.data))
-      .catch(err => console.log(err))
-  }, [])
 
   // toogle Form display true or false
   const toogleModal = (e) => {
     e.preventDefault();
-    console.log("test", employee);
+  
     setModalVisible(!modalVisible);
   };
 
@@ -43,9 +25,7 @@ function CreateEmployee() {
         <main className="home-main">
           <h2 className="home-title">Create Employee</h2>
           <CreateEmployeeForm />
-          {/* <Button type="button" variant="contained">
-            Submit
-          </Button> */}
+    
           <Modal onClick={toogleModal} />
         </main>
         <Footer />
@@ -58,7 +38,7 @@ function CreateEmployee() {
         <Header />
         <main className="home-main">
           <h2 className="home-title">Create Employee</h2>
-          <CreateEmployeeForm onClick={toogleModal} />
+          <CreateEmployeeForm toogleFunction={toogleModal} />
           {/* <Button variant="contained" onClick={toogleModal}>
             Submit
           </Button> */}

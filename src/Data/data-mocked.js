@@ -318,5 +318,3 @@ export const departments = [
     name: "Legal",
   },
 ];
-
-export let employeesList = [];

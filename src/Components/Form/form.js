@@ -14,8 +14,10 @@ import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import "./form.scss";
 import { useState } from "react";
 import { states, departments } from "../../Data/data-mocked";
+import { setEmployee } from "../../Utils/services";
 
-function CreateEmployeeForm({ onClick }) {
+function CreateEmployeeForm() {
+
   const [firstNameValue, setFirstNameValue] = useState("");
   const [lastNameValue, setLastNameValue] = useState("");
   const [birthDateValue, setBirthDateValue] = useState(null);
@@ -26,20 +28,24 @@ function CreateEmployeeForm({ onClick }) {
   const [zipCodeValue, setZipCodeValue] = useState("");
   const [departmentValue, setDepartmentValue] = useState();
 
-  // const newEmployee = {
-  //   firstName: firstNameValue,
-  //   lastName: lastNameValue,
-  //   birthDate: birthDateValue,
-  //   startDate: startDateValue,
-  //   street: streetValue,
-  //   city: cityValue,
-  //   state: stateValue,
-  //   zipCode: zipCodeValue,
-  //   department: departmentValue,
-  // };
+  const submitForm = (e) => {
+    e.preventDefault();
+    const newEmployee = {
+      firstName: firstNameValue,
+      lastName: lastNameValue,
+      birthDate: birthDateValue,
+      startDate: startDateValue,
+      street: streetValue,
+      city: cityValue,
+      state: stateValue,
+      zipCode: zipCodeValue,
+      department: departmentValue,
+    };
+    setEmployee(newEmployee);
+  }
 
   return (
-    <form className="form">
+    <form className="form" onSubmit={submitForm}>
       <FormGroup>
         <TextField
           id="outlined-name"
@@ -184,7 +190,7 @@ function CreateEmployeeForm({ onClick }) {
           })}
         </Select>
       </FormControl>
-      <Button type="submit" variant="contained" onClick={onClick}>
+      <Button type="submit" variant="contained">
         Submit
       </Button>
     </form>
