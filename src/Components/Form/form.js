@@ -14,7 +14,8 @@ import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import "./form.scss";
 import { useState } from "react";
 import { states, departments } from "../../Data/data-mocked";
-import { setEmployee } from "../../Utils/services";
+import * as employeeService from "../../services/employee-services";
+import { useSelector } from "react-redux";
 
 function CreateEmployeeForm() {
 
@@ -27,6 +28,9 @@ function CreateEmployeeForm() {
   const [stateValue, setStateValue] = useState();
   const [zipCodeValue, setZipCodeValue] = useState("");
   const [departmentValue, setDepartmentValue] = useState();
+
+  const employees = useSelector(state => state.employees);
+
 
   const submitForm = (e) => {
     e.preventDefault();
@@ -41,7 +45,11 @@ function CreateEmployeeForm() {
       zipCode: zipCodeValue,
       department: departmentValue,
     };
-    setEmployee(newEmployee);
+    console.log('employees use', employees);
+    employees.push(newEmployee);
+    console.log('employees pushed', employees)
+
+    employeeService.setEmployee(employees);
   }
 
   return (

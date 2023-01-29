@@ -14,7 +14,7 @@ function CreateEmployee() {
   // toogle Form display true or false
   const toogleModal = (e) => {
     e.preventDefault();
-  
+
     setModalVisible(!modalVisible);
   };
 
@@ -25,7 +25,7 @@ function CreateEmployee() {
         <main className="home-main">
           <h2 className="home-title">Create Employee</h2>
           <CreateEmployeeForm />
-    
+
           <Modal onClick={toogleModal} />
         </main>
         <Footer />
