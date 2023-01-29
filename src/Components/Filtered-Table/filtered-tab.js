@@ -2,6 +2,10 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import { DataGrid, GridToolbarQuickFilter } from "@mui/x-data-grid";
 // import { useDemoData } from "@mui/x-data-grid-generator";
+import { useSelector } from "react-redux";
+
+
+
 
 function QuickSearchToolbar() {
   return (
@@ -17,11 +21,15 @@ function QuickSearchToolbar() {
 }
 
 export default function FilteredTab() {
-  // const { data } = useDemoData({
-  //   dataSet: "Employee",
-  //   visibleFields: VISIBLE_FIELDS,
-  //   rowLength: 100,
-  // });
+  const employees = useSelector(state => state.employees);
+  console.log("employees", employees);
+
+  const rows = employees.map((employee, index) => {
+    employee["id"] = index;
+    return employee;
+  })
+  console.log("rows", rows);
+
 
   const columns = [
     {
@@ -80,56 +88,56 @@ export default function FilteredTab() {
     },
   ];
 
-  const rows = [
-    {
-      id: 1,
-      firstname: "Snow",
-      lastname: "Jon",
-      startdate: "07/03/2014",
-      department: "Sales",
-      birthdate: "12/02/1976",
-      street: "streetA",
-      city: "CityB",
-      state: "Alabama",
-      zipcode: "256486",
-    },
-    {
-      id: 2,
-      firstname: "Martine",
-      lastname: "Lock",
-      startdate: "15/08/2018",
-      department: "Human Ressources",
-      birthdate: "12/02/1976",
-      street: "streetA",
-      city: "CityB",
-      state: "Texas",
-      zipcode: "256486",
-    },
-    {
-      id: 3,
-      firstname: "Snow",
-      lastname: "Jon",
-      startdate: "07/03/2014",
-      department: "Legal",
-      birthdate: "12/02/1976",
-      street: "streetA",
-      city: "CityB",
-      state: "California",
-      zipcode: "256486",
-    },
-    {
-      id: 4,
-      firstname: "Snow",
-      lastname: "Jon",
-      startdate: "07/03/2014",
-      department: "Marketing",
-      birthdate: "12/02/1976",
-      street: "streetA",
-      city: "CityB",
-      state: "Ilinois",
-      zipcode: "256486",
-    },
-  ];
+  // const rows = [
+  //   {
+  //     id: 1,
+  //     firstname: "Snow",
+  //     lastname: "Jon",
+  //     startdate: "07/03/2014",
+  //     department: "Sales",
+  //     birthdate: "12/02/1976",
+  //     street: "streetA",
+  //     city: "CityB",
+  //     state: "Alabama",
+  //     zipcode: "256486",
+  //   },
+  //   {
+  //     id: 2,
+  //     firstname: "Martine",
+  //     lastname: "Lock",
+  //     startdate: "15/08/2018",
+  //     department: "Human Ressources",
+  //     birthdate: "12/02/1976",
+  //     street: "streetA",
+  //     city: "CityB",
+  //     state: "Texas",
+  //     zipcode: "256486",
+  //   },
+  //   {
+  //     id: 3,
+  //     firstname: "Snow",
+  //     lastname: "Jon",
+  //     startdate: "07/03/2014",
+  //     department: "Legal",
+  //     birthdate: "12/02/1976",
+  //     street: "streetA",
+  //     city: "CityB",
+  //     state: "California",
+  //     zipcode: "256486",
+  //   },
+  //   {
+  //     id: 4,
+  //     firstname: "Snow",
+  //     lastname: "Jon",
+  //     startdate: "07/03/2014",
+  //     department: "Marketing",
+  //     birthdate: "12/02/1976",
+  //     street: "streetA",
+  //     city: "CityB",
+  //     state: "Ilinois",
+  //     zipcode: "256486",
+  //   },
+  // ];
 
   const objet = [];
 

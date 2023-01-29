@@ -31,24 +31,22 @@ function CreateEmployeeForm() {
 
   const employees = useSelector(state => state.employees);
 
-
   const submitForm = (e) => {
     e.preventDefault();
+
     const newEmployee = {
-      firstName: firstNameValue,
-      lastName: lastNameValue,
-      birthDate: birthDateValue,
-      startDate: startDateValue,
+      firstname: firstNameValue,
+      lastname: lastNameValue,
+      birthdate: birthDateValue,
+      startdate: startDateValue,
       street: streetValue,
       city: cityValue,
       state: stateValue,
-      zipCode: zipCodeValue,
+      zipcode: zipCodeValue,
       department: departmentValue,
     };
-    console.log('employees use', employees);
-    employees.push(newEmployee);
-    console.log('employees pushed', employees)
 
+    employees.push(newEmployee);
     employeeService.setEmployee(employees);
   }
 
