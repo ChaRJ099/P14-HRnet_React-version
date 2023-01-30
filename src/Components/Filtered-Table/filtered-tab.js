@@ -1,11 +1,7 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import { DataGrid, GridToolbarQuickFilter } from "@mui/x-data-grid";
-// import { useDemoData } from "@mui/x-data-grid-generator";
 import { useSelector } from "react-redux";
-
-
-
 
 function QuickSearchToolbar() {
   return (
@@ -20,16 +16,23 @@ function QuickSearchToolbar() {
   );
 }
 
+
+
+
 export default function FilteredTab() {
   const employees = useSelector(state => state.employees);
-  console.log("employees", employees);
 
   const rows = employees.map((employee, index) => {
+    if (employee.startdate && employee.startdate.$d) {
+      employee.startdate = employee.startdate.$d.toLocaleDateString();
+    }
+    if (employee.birthdate && employee.birthdate.$d) {
+      employee.birthdate = employee.birthdate.$d.toLocaleDateString();
+    }
+
     employee["id"] = index;
     return employee;
   })
-  console.log("rows", rows);
-
 
   const columns = [
     {

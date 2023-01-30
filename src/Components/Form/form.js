@@ -25,9 +25,9 @@ function CreateEmployeeForm() {
   const [startDateValue, setStartDateValue] = useState(null);
   const [streetValue, setStreetValue] = useState("");
   const [cityValue, setCityValue] = useState("");
-  const [stateValue, setStateValue] = useState();
+  const [stateValue, setStateValue] = useState("Alabama");
   const [zipCodeValue, setZipCodeValue] = useState("");
-  const [departmentValue, setDepartmentValue] = useState();
+  const [departmentValue, setDepartmentValue] = useState("Sales");
 
   const employees = useSelector(state => state.employees);
 
@@ -48,6 +48,7 @@ function CreateEmployeeForm() {
 
     employees.push(newEmployee);
     employeeService.setEmployee(employees);
+    console.log(birthDateValue);
   }
 
   return (
@@ -147,7 +148,6 @@ function CreateEmployeeForm() {
             labelId="demo-simple-select-label"
             id="demo-simple-select"
             label="State"
-            defaultValue="Alabama"
             value={stateValue}
             onChange={(e) => setStateValue(e.target.value)}
           >
@@ -183,7 +183,6 @@ function CreateEmployeeForm() {
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           label="Department"
-          defaultValue="Sales"
           value={departmentValue}
           onChange={(e) => setDepartmentValue(e.target.value)}
         >
