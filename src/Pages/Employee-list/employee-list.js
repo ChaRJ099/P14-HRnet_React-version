@@ -7,7 +7,7 @@ import Footer from "../../Components/Footer/footer";
 function EmployeeList() {
   return (
     <div className="employee-list-container">
-      <Header />
+      <Header link={"/"} linkName={"Create new employee"} />
       <main className="employee-list-main">
         <h2>Current Employees</h2>
         <FilteredTab />

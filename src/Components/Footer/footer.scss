@@ -1,14 +1,13 @@
 .footer {
   display: flex;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
-  border-top: 2px solid #ccc;
-  height: 50px;
+  height: 60px;
   position: absolute;
   bottom: 0;
   margin: 0 auto;
   width: 100%;
+  background-color: black;
 
   &__text {
     margin: 0px 0px 0.35em;
@@ -17,10 +16,6 @@
     font-size: 0.75rem;
     line-height: 1.66;
     letter-spacing: 0.03333em;
-  }
-
-  &-logo {
-    max-width: 100%;
-    width: 30px;
+    color: #fff;
   }
 }

@@ -11,7 +11,6 @@ export default function InputDatePicker({ label, value, name }) {
         id="date"
         type="date"
         value={value}
-        sx={{ width: 267 }}
         InputLabelProps={{
           shrink: true,
         }}

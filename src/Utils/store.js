@@ -1,21 +1,33 @@
-import { createStore } from 'redux'
-import { persistStore, persistReducer } from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
-import { initialState, employeeReducer } from './employee-reducer';
+import { createStore } from 'redux';
+import { employeeReducer } from './employee-reducer';
 import { composeWithDevTools } from '@redux-devtools/extension';
 
-let persistConfig = {
-    key: 'employees',
-    storage,
+function saveToLocalStorage(state) {
+    try {
+        const serialisedState = JSON.stringify(state);
+        localStorage.setItem("persistantState", serialisedState);
+    } catch (e) {
+        console.warn(e);
+    }
 }
 
-let persistedReducer = persistReducer(persistConfig, employeeReducer);
+function loadFromLocalStorage() {
+    try {
+        const serialisedState = localStorage.getItem("persistantState");
+        if (serialisedState === null) return undefined;
+        return JSON.parse(serialisedState);
+    } catch (e) {
+        console.warn(e);
+        return undefined;
+    }
+}
 
 export let store = createStore(
-    persistedReducer,
-    initialState,
+    employeeReducer,
+    loadFromLocalStorage(),
     composeWithDevTools()
 );
 
-export let persistor = persistStore(store);
+store.subscribe(() => saveToLocalStorage(store.getState()));
+
 

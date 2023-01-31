@@ -5,7 +5,7 @@ import "./select-department.scss";
 function SelectState({ name }) {
   return (
     <Box sx={{ minWidth: 120 }} className="dropdown-container">
-      <FormControl fullWidth>
+      <FormControl>
         <FormLabel id="demo-simple-select-label">Department</FormLabel>
         <Select
           name={name}

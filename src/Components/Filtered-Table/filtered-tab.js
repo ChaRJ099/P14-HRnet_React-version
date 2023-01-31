@@ -2,6 +2,7 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import { DataGrid, GridToolbarQuickFilter } from "@mui/x-data-grid";
 import { useSelector } from "react-redux";
+import "./filtered-table.scss";
 
 function QuickSearchToolbar() {
   return (
@@ -15,9 +16,6 @@ function QuickSearchToolbar() {
     </Box>
   );
 }
-
-
-
 
 export default function FilteredTab() {
   const employees = useSelector(state => state.employees);
@@ -90,8 +88,6 @@ export default function FilteredTab() {
       editable: true,
     },
   ];
-
-  // const rows = [
   //   {
   //     id: 1,
   //     firstname: "Snow",
@@ -144,14 +140,8 @@ export default function FilteredTab() {
 
   const objet = [];
 
-  // Otherwise filter will be applied on fields such as the hidden column id
-  // const filteredColumns = React.useMemo(
-  //   () => columns.filter((column) => VISIBLE_FIELDS.includes(column.field)),
-  //   [columns]
-  // );
-
   return (
-    <Box sx={{ height: 400, width: 1 }}>
+    <Box sx={{ height: 500, width: 1000 }} className="table">
       <DataGrid
         {...objet}
         rows={rows}
