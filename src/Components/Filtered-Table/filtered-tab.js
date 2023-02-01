@@ -57,12 +57,21 @@ export default function FilteredTab() {
   const employees = useSelector(state => state.employees);
 
   const rows = employees.map((employee, index) => {
+
+    // @TODO: retourner la bonne valeur directement dans le reducer
+
+    console.log("1");
     if (employee.startdate && employee.startdate.$d) {
+      console.log("2");
+
       employee.startdate = employee.startdate.$d.toLocaleDateString();
     }
     if (employee.birthdate && employee.birthdate.$d) {
+      console.log("3");
+
       employee.birthdate = employee.birthdate.$d.toLocaleDateString();
     }
+    console.log("4");
 
     employee["id"] = index;
     return employee;

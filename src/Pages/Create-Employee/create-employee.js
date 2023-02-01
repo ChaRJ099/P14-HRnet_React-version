@@ -12,10 +12,9 @@ function CreateEmployee() {
       <main className="create-main">
         <section className="create-main-section">
           <div>
-            <h1 className="home-title">Create Employee</h1>
+            <h1 className="create-title">Create Employee</h1>
             <CreateEmployeeForm />
           </div>
-
         </section>
       </main>
       <Footer />

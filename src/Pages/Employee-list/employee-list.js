@@ -9,8 +9,12 @@ function EmployeeList() {
     <div className="employee-list-container">
       <Header link={"/"} linkName={"Create new employee"} />
       <main className="employee-list-main">
-        <h2>Current Employees</h2>
-        <FilteredTab />
+        <section className="employee-list-section">
+          <div className="employee-list-title">
+            <h1>Current Employees</h1>
+            <FilteredTab />
+          </div>
+        </section>
       </main>
       <Footer />
     </div>
