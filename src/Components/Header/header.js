@@ -9,7 +9,7 @@ function Header({ link, linkName }) {
         <div className="header-title-container">
           <NavLink to="/"><img className="header__logo" src={Logo} alt="logo wealth health" /></NavLink>
           <span className="header__title">Wealth Health |</span>
-          <span>HRnet</span>
+          <span className="header__title--secondary">HRnet</span>
         </div>
         <nav className="nav">
           <NavLink to={link}>{linkName}</NavLink>

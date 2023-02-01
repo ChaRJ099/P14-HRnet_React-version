@@ -1,8 +1,44 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-import { DataGrid, GridToolbarQuickFilter } from "@mui/x-data-grid";
+import { DataGrid, GridToolbarQuickFilter, gridClasses } from "@mui/x-data-grid";
+import { alpha, styled } from '@mui/material/styles';
 import { useSelector } from "react-redux";
 import "./filtered-table.scss";
+
+const ODD_OPACITY = 0.2;
+
+const StripedDataGrid = styled(DataGrid)(({ theme }) => ({
+  [`& .${gridClasses.row}.even`]: {
+    backgroundColor: theme.palette.grey[200],
+    '&:hover, &.Mui-hovered': {
+      backgroundColor: alpha(theme.palette.primary.main, ODD_OPACITY),
+      '@media (hover: none)': {
+        backgroundColor: 'transparent',
+      },
+    },
+    '&.Mui-selected': {
+      backgroundColor: alpha(
+        theme.palette.primary.main,
+        ODD_OPACITY + theme.palette.action.selectedOpacity,
+      ),
+      '&:hover, &.Mui-hovered': {
+        backgroundColor: alpha(
+          theme.palette.primary.main,
+          ODD_OPACITY +
+          theme.palette.action.selectedOpacity +
+          theme.palette.action.hoverOpacity,
+        ),
+        // Reset on touch devices, it doesn't add specificity
+        '@media (hover: none)': {
+          backgroundColor: alpha(
+            theme.palette.primary.main,
+            ODD_OPACITY + theme.palette.action.selectedOpacity,
+          ),
+        },
+      },
+    },
+  },
+}));
 
 function QuickSearchToolbar() {
   return (
@@ -37,54 +73,72 @@ export default function FilteredTab() {
       field: "firstname",
       headerName: "First name",
       width: 130,
+      headerClassName: 'super-app-theme--header',
+      headerAlign: 'left',
       editable: true,
     },
     {
       field: "lastname",
       headerName: "Last Name",
       width: 130,
+      headerClassName: 'super-app-theme--header',
+      headerAlign: 'left',
       editable: true,
     },
     {
       field: "startdate",
       headerName: "Start Date",
       width: 130,
+      headerClassName: 'super-app-theme--header',
+      headerAlign: 'left',
       editable: true,
     },
     {
       field: "department",
       headerName: "Department",
       width: 130,
+      headerClassName: 'super-app-theme--header',
+      headerAlign: 'left',
       editable: true,
     },
     {
       field: "birthdate",
       headerName: "Date of Birth",
       width: 130,
+      headerClassName: 'super-app-theme--header',
+      headerAlign: 'left',
       editable: true,
     },
     {
       field: "street",
       headerName: "Street",
       width: 130,
+      headerClassName: 'super-app-theme--header',
+      headerAlign: 'left',
       editable: true,
     },
     {
       field: "city",
       headerName: "City",
       width: 130,
+      headerClassName: 'super-app-theme--header',
+      headerAlign: 'left',
       editable: true,
     },
     {
       field: "state",
       headerName: "State",
       width: 130,
+      headerClassName: 'super-app-theme--header',
+      headerAlign: 'left',
       editable: true,
     },
     {
       field: "zipcode",
       headerName: "Zip Code",
       width: 130,
+      headerClassName: 'super-app-theme--header',
+      headerAlign: 'left',
       editable: true,
     },
   ];
@@ -141,9 +195,19 @@ export default function FilteredTab() {
   const objet = [];
 
   return (
-    <Box sx={{ height: 500, width: 1000 }} className="table">
-      <DataGrid
+    <Box sx={{
+      height: 500, width: 1000,
+      '& .super-app-theme--header': {
+        // backgroundColor: '#9DACED'
+        backgroundColor: '#55326B',
+        color: '#fff'
+      }
+    }} className="table">
+      <StripedDataGrid
         {...objet}
+        getRowClassName={(params) =>
+          params.indexRelativeToCurrentPage % 2 === 0 ? 'even' : 'odd'
+        }
         rows={rows}
         columns={columns}
         components={{ Toolbar: QuickSearchToolbar }}

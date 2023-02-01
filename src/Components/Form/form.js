@@ -55,7 +55,6 @@ function CreateEmployeeForm() {
   return (
     <>
       <form className="form" onSubmit={submitForm}>
-        <h1 className="home-title">Create Employee</h1>
         <div className="names-container">
           <TextField
             // error

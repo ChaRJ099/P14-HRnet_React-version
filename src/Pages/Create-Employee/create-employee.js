@@ -7,10 +7,16 @@ import Footer from "../../Components/Footer/footer";
 function CreateEmployee() {
 
   return (
-    <div className="home-container">
+    <div className="create-container">
       <Header link={"/employee-list"} linkName={"View current employees"} />
-      <main className="home-main">
-        <CreateEmployeeForm />
+      <main className="create-main">
+        <section className="create-main-section">
+          <div>
+            <h1 className="home-title">Create Employee</h1>
+            <CreateEmployeeForm />
+          </div>
+
+        </section>
       </main>
       <Footer />
     </div>

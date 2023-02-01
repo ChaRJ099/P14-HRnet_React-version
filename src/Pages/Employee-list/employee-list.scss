@@ -1,8 +1,13 @@
-.employee-list-main {
-  height: calc(100% - 165px);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: #e7e7e7;
+.employee-list {
+  &-container {
+    height: 100%;
+  }
+  &-main {
+    display: flex;
+    height: calc(100% - 165px);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #e7ebf0;
+  }
 }

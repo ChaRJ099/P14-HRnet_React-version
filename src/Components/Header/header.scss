@@ -2,6 +2,18 @@
   display: flex;
   flex-direction: column;
 
+  &__title {
+    margin: 0 10px;
+    font-weight: 600;
+    font-size: 1.8em;
+
+    &--secondary {
+      font-weight: 600;
+      font-size: 1.8em;
+      color: #93ad18;
+    }
+  }
+
   &-container {
     display: flex;
     flex-direction: row;
@@ -25,10 +37,6 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-
-    h1 {
-      margin: 0;
-    }
   }
 
   &__logo {
@@ -38,6 +46,6 @@
   &__border--gradient {
     width: 100%;
     height: 5px;
-    background: linear-gradient(#07070746, #e7e7e7);
+    background: linear-gradient(#07070733, #ffffff);
   }
 }
