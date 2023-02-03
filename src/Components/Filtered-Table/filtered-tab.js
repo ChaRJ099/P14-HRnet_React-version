@@ -1,9 +1,12 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import { DataGrid, GridToolbarQuickFilter, gridClasses } from "@mui/x-data-grid";
+// import { getDataFromLocalStorage } from "../../services/employee-services";
 import { alpha, styled } from '@mui/material/styles';
 import { useSelector } from "react-redux";
 import "./filtered-table.scss";
+
+// getDataFromLocalStorage();
 
 const ODD_OPACITY = 0.2;
 
@@ -57,25 +60,9 @@ export default function FilteredTab() {
   const employees = useSelector(state => state.employees);
 
   const rows = employees.map((employee, index) => {
-
-    // @TODO: retourner la bonne valeur directement dans le reducer
-
-    console.log("1");
-    if (employee.startdate && employee.startdate.$d) {
-      console.log("2");
-
-      employee.startdate = employee.startdate.$d.toLocaleDateString();
-    }
-    if (employee.birthdate && employee.birthdate.$d) {
-      console.log("3");
-
-      employee.birthdate = employee.birthdate.$d.toLocaleDateString();
-    }
-    console.log("4");
-
     employee["id"] = index;
     return employee;
-  })
+  });
 
   const columns = [
     {

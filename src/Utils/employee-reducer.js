@@ -8,7 +8,6 @@ export const setEmployeeAction = (employees) => ({
   payload: employees,
 });
 
-
 export const employeeReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'employee/set':
@@ -20,4 +19,5 @@ export const employeeReducer = (state = initialState, action) => {
       return state
   }
 }
+
 

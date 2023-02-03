@@ -24,6 +24,7 @@ function CreateEmployeeForm() {
 
   const employees = useSelector(state => state.employees);
 
+
   // toogle Form display true or false
   const toogleModal = () => {
     setModalVisible(!modalVisible);
@@ -32,11 +33,14 @@ function CreateEmployeeForm() {
   const submitForm = (e) => {
     e.preventDefault();
 
+    const birthDateValueFormated = new Date(birthDateValue).toLocaleDateString();
+    const startDateValueFormated = new Date(startDateValue).toLocaleDateString();
+
     const newEmployee = {
       firstname: firstNameValue,
       lastname: lastNameValue,
-      birthdate: birthDateValue,
-      startdate: startDateValue,
+      birthdate: birthDateValueFormated,
+      startdate: startDateValueFormated,
       street: streetValue,
       city: cityValue,
       state: stateValue,
@@ -47,7 +51,7 @@ function CreateEmployeeForm() {
     employees.push(newEmployee);
     employeeService.setEmployee(employees);
     toogleModal();
-    console.log(modalVisible);
+    // console.log("birthDateValue", new Date(birthDateValue).toLocaleDateString());
   }
 
   return (
