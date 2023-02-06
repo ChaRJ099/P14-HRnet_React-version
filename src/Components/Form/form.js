@@ -1,12 +1,14 @@
+import React from "react";
 import { Button, Grid } from "@mui/material";
 import { useState } from "react";
 import * as employeeService from "../../services/employee-services";
 import { useSelector } from "react-redux";
-import Modal from "../Modal/modal";
+// import Modal from "../Modal/modal";
 import InputGroup from "../input-group/input-group";
 import InputDatePicker from "../Date-picker/date-picker";
 import SelectDepartment from "../select-department/select-department";
 import SelectState from "../select-state/select-state";
+import { LightModal } from "../../../node_modules/light-modal-test4/dist/light-modal/index";
 import "./form.scss";
 
 
@@ -91,9 +93,7 @@ function CreateEmployeeForm() {
           Submit
         </Button>
       </form>
-      <Modal onClick={toogleModal} modalVisible={modalVisible}>
-        <span>HELLO</span>
-      </Modal>
+      <LightModal onClick={toogleModal} modalVisible={modalVisible} text={"Employee created!"} />
     </>
   );
 }
