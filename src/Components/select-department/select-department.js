@@ -1,6 +1,5 @@
 import { Select, InputLabel, MenuItem, FormControl } from "@mui/material";
 import { departments } from "../../Data/data-mocked";
-import "./select-department.scss";
 
 function SelectDepartment(props) {
   return (

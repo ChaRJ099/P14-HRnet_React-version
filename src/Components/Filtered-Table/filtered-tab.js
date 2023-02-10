@@ -1,12 +1,9 @@
-import * as React from "react";
+import React from "react";
 import Box from "@mui/material/Box";
 import { DataGrid, GridToolbarQuickFilter, gridClasses } from "@mui/x-data-grid";
-// import { getDataFromLocalStorage } from "../../services/employee-services";
 import { alpha, styled } from '@mui/material/styles';
 import { useSelector } from "react-redux";
 import "./filtered-table.scss";
-
-// getDataFromLocalStorage();
 
 const ODD_OPACITY = 0.2;
 

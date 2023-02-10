@@ -1,12 +1,12 @@
 import { Select, InputLabel, MenuItem, FormControl } from "@mui/material";
 import { states } from "../../Data/data-mocked";
-import "./select-state.scss";
 
 function SelectState(props) {
   return (
     <FormControl required fullWidth size="small">
       <InputLabel id="demo-select-small">State</InputLabel>
       <Select
+        size="small"
         name="state"
         className="select-menu"
         labelId="demo-select-small"
