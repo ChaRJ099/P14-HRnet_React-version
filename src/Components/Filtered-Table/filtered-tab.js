@@ -1,9 +1,11 @@
-import React from "react";
-import Box from "@mui/material/Box";
+import React, { lazy, Suspense } from "react";
 import { DataGrid, GridToolbarQuickFilter, gridClasses } from "@mui/x-data-grid";
 import { alpha, styled } from '@mui/material/styles';
 import { useSelector } from "react-redux";
 import "./filtered-table.scss";
+import { tabColumns } from "../../Data/data-mocked";
+
+const Box = lazy(() => import('@mui/material/Box'));
 
 const ODD_OPACITY = 0.2;
 
@@ -42,14 +44,19 @@ const StripedDataGrid = styled(DataGrid)(({ theme }) => ({
 
 function QuickSearchToolbar() {
   return (
-    <Box
-      sx={{
-        p: 0.5,
-        pb: 0,
-      }}
-    >
-      <GridToolbarQuickFilter />
-    </Box>
+    <>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Box
+          sx={{
+            p: 0.5,
+            pb: 0,
+          }}
+        >
+          <GridToolbarQuickFilter />
+        </Box>
+      </Suspense>
+    </>
+
   );
 }
 
@@ -61,150 +68,29 @@ export default function FilteredTab() {
     return employee;
   });
 
-  const columns = [
-    {
-      field: "firstname",
-      headerName: "First name",
-      width: 130,
-      headerClassName: 'super-app-theme--header',
-      headerAlign: 'left',
-      editable: true,
-    },
-    {
-      field: "lastname",
-      headerName: "Last Name",
-      width: 130,
-      headerClassName: 'super-app-theme--header',
-      headerAlign: 'left',
-      editable: true,
-    },
-    {
-      field: "startdate",
-      headerName: "Start Date",
-      width: 130,
-      headerClassName: 'super-app-theme--header',
-      headerAlign: 'left',
-      editable: true,
-    },
-    {
-      field: "department",
-      headerName: "Department",
-      width: 130,
-      headerClassName: 'super-app-theme--header',
-      headerAlign: 'left',
-      editable: true,
-    },
-    {
-      field: "birthdate",
-      headerName: "Date of Birth",
-      width: 130,
-      headerClassName: 'super-app-theme--header',
-      headerAlign: 'left',
-      editable: true,
-    },
-    {
-      field: "street",
-      headerName: "Street",
-      width: 130,
-      headerClassName: 'super-app-theme--header',
-      headerAlign: 'left',
-      editable: true,
-    },
-    {
-      field: "city",
-      headerName: "City",
-      width: 130,
-      headerClassName: 'super-app-theme--header',
-      headerAlign: 'left',
-      editable: true,
-    },
-    {
-      field: "state",
-      headerName: "State",
-      width: 130,
-      headerClassName: 'super-app-theme--header',
-      headerAlign: 'left',
-      editable: true,
-    },
-    {
-      field: "zipcode",
-      headerName: "Zip Code",
-      width: 130,
-      headerClassName: 'super-app-theme--header',
-      headerAlign: 'left',
-      editable: true,
-    },
-  ];
-  //   {
-  //     id: 1,
-  //     firstname: "Snow",
-  //     lastname: "Jon",
-  //     startdate: "07/03/2014",
-  //     department: "Sales",
-  //     birthdate: "12/02/1976",
-  //     street: "streetA",
-  //     city: "CityB",
-  //     state: "Alabama",
-  //     zipcode: "256486",
-  //   },
-  //   {
-  //     id: 2,
-  //     firstname: "Martine",
-  //     lastname: "Lock",
-  //     startdate: "15/08/2018",
-  //     department: "Human Ressources",
-  //     birthdate: "12/02/1976",
-  //     street: "streetA",
-  //     city: "CityB",
-  //     state: "Texas",
-  //     zipcode: "256486",
-  //   },
-  //   {
-  //     id: 3,
-  //     firstname: "Snow",
-  //     lastname: "Jon",
-  //     startdate: "07/03/2014",
-  //     department: "Legal",
-  //     birthdate: "12/02/1976",
-  //     street: "streetA",
-  //     city: "CityB",
-  //     state: "California",
-  //     zipcode: "256486",
-  //   },
-  //   {
-  //     id: 4,
-  //     firstname: "Snow",
-  //     lastname: "Jon",
-  //     startdate: "07/03/2014",
-  //     department: "Marketing",
-  //     birthdate: "12/02/1976",
-  //     street: "streetA",
-  //     city: "CityB",
-  //     state: "Ilinois",
-  //     zipcode: "256486",
-  //   },
-  // ];
+  const columns = tabColumns;
 
   const objet = [];
 
   return (
-    <Box sx={{
-      height: 500, width: 1000,
-      '& .super-app-theme--header': {
-        // backgroundColor: '#9DACED'
-        backgroundColor: '#55326B',
-        color: '#fff'
-      }
-    }} className="table">
-      <StripedDataGrid
-        {...objet}
-        getRowClassName={(params) =>
-          params.indexRelativeToCurrentPage % 2 === 0 ? 'even' : 'odd'
+    <Suspense fallback={<div>Loading...</div>}>
+      <Box sx={{
+        height: 600, width: 1, maxWidth: 1170,
+        '& .super-app-theme--header': {
+          backgroundColor: '#55326B',
+          color: '#fff'
         }
-        rows={rows}
-        columns={columns}
-        components={{ Toolbar: QuickSearchToolbar }}
-      />
-    </Box>
+      }} className="table">
+        <StripedDataGrid
+          {...objet}
+          getRowClassName={(params) =>
+            params.indexRelativeToCurrentPage % 2 === 0 ? 'even' : 'odd'
+          }
+          rows={rows}
+          columns={columns}
+          components={{ Toolbar: QuickSearchToolbar }}
+        />
+      </Box>
+    </Suspense >
   );
 }

@@ -47,6 +47,22 @@
   }
 }
 
-.button--green {
-  background-color: #93ad18;
+@media screen and (max-width: 600px) {
+  .form-container {
+    width: 100%;
+  }
+  .names-container,
+  .dates-container {
+    flex-direction: column;
+  }
+  .MuiGrid-root.MuiGrid-container.css-10mzr36-MuiGrid-root {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .MuiGrid-root.MuiGrid-item.MuiGrid-grid-xs-6.css-1osj8n2-MuiGrid-root {
+    max-width: 100%;
+  }
 }
+
+

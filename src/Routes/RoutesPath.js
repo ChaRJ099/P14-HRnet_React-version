@@ -10,7 +10,7 @@ function RoutesPath() {
         <Route path="/" element={<CreateEmployee />} />
         <Route path="/employee-list" element={<EmployeeList />} />
       </Routes>
-    </BrowserRouter>
+    </BrowserRouter >
   );
 }
 
