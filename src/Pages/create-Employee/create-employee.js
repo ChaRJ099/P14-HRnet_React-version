@@ -17,9 +17,7 @@ function CreateEmployee() {
               <CreateEmployeeForm />
             </div>
           </section>
-
         </main>
-
         <Footer />
       </Suspense>
     </>

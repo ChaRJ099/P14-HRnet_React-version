@@ -1,24 +1,24 @@
 import { Select, InputLabel, MenuItem, FormControl } from "@mui/material";
-import { departments } from "../../Data/data-mocked";
 
-function SelectDepartment(props) {
+function CustomSelect(props) {
   return (
     <FormControl required fullWidth size="small">
-      <InputLabel id="demo-select-small">Department</InputLabel>
+      <InputLabel id="demo-select-small">{props.name}</InputLabel>
       <Select
-        variant="filled"
-        name="department"
+        size="small"
+        name={props.name}
         className="select-menu"
         labelId="demo-select-small"
         id="demo-select-small"
-        label="Department"
+        label={props.name}
+        variant="filled"
         value={props.value}
         onChange={props.onChange}
       >
-        {departments.map((department) => {
+        {props.options.map((option) => {
           return (
-            <MenuItem key={department.id} value={department.name}>
-              {department.name}
+            <MenuItem key={option.id} value={option.name}>
+              {option.name}
             </MenuItem>
           );
         })}
@@ -27,4 +27,4 @@ function SelectDepartment(props) {
   );
 }
 
-export default SelectDepartment;
+export default CustomSelect;

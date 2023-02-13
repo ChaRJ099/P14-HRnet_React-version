@@ -16,9 +16,7 @@ function EmployeeList() {
             </div>
             <FilteredTab />
           </section>
-
         </main>
-
         <Footer />
       </Suspense>
     </>

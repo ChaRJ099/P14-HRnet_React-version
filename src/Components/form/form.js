@@ -3,9 +3,10 @@ import { useSelector } from "react-redux";
 import { Button, Grid } from "@mui/material";
 import * as employeeService from "../../services/employee-services";
 import { LightModal } from "light-modal-test4/dist/light-modal";
+import { states, departments } from "../../Data/data-mocked";
+
 import "./form.scss";
-const SelectState = lazy(() => import('../select-state/select-state'));
-const SelectDepartment = lazy(() => import('../select-department/select-department'));
+const CustomSelect = lazy(() => import('../custom-select/custom-select'));
 const InputDatePicker = lazy(() => import('../date-picker/date-picker'));
 const InputGroup = lazy(() => import('../input-group/input-group'));
 
@@ -23,7 +24,6 @@ function CreateEmployeeForm() {
   const [departmentValue, setDepartmentValue] = useState("");
 
   const employees = useSelector(state => state.employees);
-
 
   // toogle Form display true or false
   const toogleModal = () => {
@@ -80,14 +80,14 @@ function CreateEmployeeForm() {
                 <InputGroup type="text" name="city" label="City" value={cityValue} onChange={(e) => setCityValue(e.target.value)} />
               </Grid>
               <Grid item xs={6}>
-                <SelectState value={stateValue} onChange={(e) => setStateValue(e.target.value)} />
+                <CustomSelect value={stateValue} name={"State"} options={states} onChange={(e) => setStateValue(e.target.value)} />
               </Grid>
               <Grid item xs={6}>
                 <InputGroup type="number" name="zipcode" label="Zip Code" value={zipCodeValue} onChange={(e) => setZipCodeValue(e.target.value)} />
               </Grid>
             </Grid>
           </fieldset>
-          <SelectDepartment value={departmentValue} onChange={(e) => setDepartmentValue(e.target.value)} />
+          <CustomSelect value={departmentValue} name={"Department"} options={departments} onChange={(e) => setDepartmentValue(e.target.value)} />
           <Button className="button--green" type="submit" variant="contained">
             Submit
           </Button>
