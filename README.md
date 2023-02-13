@@ -1,5 +1,3 @@
-![logo](https://user-images.githubusercontent.com/76209231/169522099-204659eb-76cb-4da7-a7f9-df91211fef56.svg)
-
 # HRnet - Wealth Health
 
 WealthHealth, a financial company, uses an internal web application (HRnet) to manage employee records. The app is old and uses jQuery, which leads to bugs and increased internal complaints.\
