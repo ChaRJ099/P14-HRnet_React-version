@@ -7,7 +7,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: 16px;
   max-width: 700px;
   padding: 30px;
   background: white;
@@ -22,7 +22,8 @@
   &-address-container {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+  flex-wrap: nowrap;
+    gap: 16px;
     width: 100%;
     border: 1px solid #ced4da;
     border-radius: 0.375rem;
@@ -30,22 +31,20 @@
   }
 }
 
+.MuiGrid-root.MuiGrid-item.MuiGrid-grid-xs-6.css-1osj8n2-MuiGrid-root {
+  padding-top: 16px;
+}
+
 .names-container,
 .dates-container {
   display: flex;
   width: 100%;
-  gap: 10px;
+  gap: 16px;
 }
-
-.adress-container {
-  display: flex;
-  flex-wrap: nowrap;
-  width: 100%;
 
   input {
     width: 50px;
   }
-}
 
 @media screen and (max-width: 600px) {
   .form-container {

@@ -2,11 +2,11 @@ import React, { lazy, Suspense, useState } from "react";
 import { useSelector } from "react-redux";
 import { Button, Grid } from "@mui/material";
 import * as employeeService from "../../services/employee-services";
-import { LightModal } from "../../../node_modules/light-modal-test4/dist/light-modal/index";
+import { LightModal } from "light-modal-test4/dist/light-modal";
 import "./form.scss";
 const SelectState = lazy(() => import('../select-state/select-state'));
 const SelectDepartment = lazy(() => import('../select-department/select-department'));
-const InputDatePicker = lazy(() => import('../Date-picker/date-picker'));
+const InputDatePicker = lazy(() => import('../date-picker/date-picker'));
 const InputGroup = lazy(() => import('../input-group/input-group'));
 
 

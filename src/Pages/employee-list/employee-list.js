@@ -1,8 +1,8 @@
 import React, { lazy, Suspense } from "react";
 import "./employee-list.scss";
-const FilteredTab = lazy(() => import('../../Components/Filtered-Table/filtered-tab'));
-const Header = lazy(() => import('../../Components/Header/header'));
-const Footer = lazy(() => import('../../Components/Footer/footer'));
+const FilteredTab = lazy(() => import('../../Components/filtered-Table/filtered-tab'));
+const Header = lazy(() => import('../../Components/header/header'));
+const Footer = lazy(() => import('../../Components/footer/footer'));
 
 function EmployeeList() {
   return (

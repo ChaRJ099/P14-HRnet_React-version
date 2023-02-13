@@ -1,8 +1,8 @@
 import React, { lazy, Suspense } from "react";
 import "./create-employee.scss";
-const CreateEmployeeForm = lazy(() => import('../../Components/Form/form'));
-const Header = lazy(() => import('../../Components/Header/header'));
-const Footer = lazy(() => import('../../Components/Footer/footer'));
+const CreateEmployeeForm = lazy(() => import('../../Components/form/form'));
+const Header = lazy(() => import('../../Components/header/header'));
+const Footer = lazy(() => import('../../Components/footer/footer'));
 
 function CreateEmployee() {
 

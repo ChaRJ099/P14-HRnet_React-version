@@ -1,4 +1,41 @@
-# Getting Started with Create React App
+![logo](https://user-images.githubusercontent.com/76209231/169522099-204659eb-76cb-4da7-a7f9-df91211fef56.svg)
+
+# HRnet - Wealth Health
+
+WealthHealth, a financial company, uses an internal web application (HRnet) to manage employee records. The app is old and uses jQuery, which leads to bugs and increased internal complaints.\
+The main goal is to convert the whole project to React.
+
+[![forthebadge](https://forthebadge.com/images/badges/uses-html.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/uses-css.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/uses-js.svg)](https://forthebadge.com)
+![library-react](https://user-images.githubusercontent.com/76209231/169810015-87e342f6-ce87-4033-8e16-8194630f88e0.svg)
+![tool-sass](https://user-images.githubusercontent.com/76209231/169813018-fb083b76-0ea4-4a9c-816a-19786ccdd023.svg)
+
+# 1. Launching the project
+
+## 1.1 Prerequisites
+
+- [NodeJS (version 12.18)](https://nodejs.org/en/) to run npm command
+  or
+- [Yarn](https://yarnpkg.com/)
+
+## 1.2 Installing the project
+
+### Launching Front-End
+
+1. Clone the repo of the front-end
+
+   `git clone https://github.com/ChaRJ099/P14-HRnet_React-version/tree/Developp`
+
+2. Install the dependencies by running the command
+
+   `yarn` (or `yarn install`) or `npm i` (or `npm install`)
+
+3. Launch the front-end on port 3000 (http://localhost:3000) by running the command
+
+   `yarn start` or `npm start`
+
+# 2. Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -39,32 +76,10 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+### Sass
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+[CSS extension language](https://sass-lang.com/)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Author
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Charline RAMELET
