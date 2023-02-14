@@ -1,14 +1,13 @@
-import React, { lazy, Suspense } from "react";
+import React from "react";
 import { DataGrid, GridToolbarQuickFilter, gridClasses } from "@mui/x-data-grid";
+import { Box } from "@mui/material";
 import { alpha, styled } from '@mui/material/styles';
 import { useSelector } from "react-redux";
 import "./filtered-table.scss";
 import { tabColumns } from "../../Data/data-mocked";
 
-const Box = lazy(() => import('@mui/material/Box'));
-
+// MUI theme to custom table style
 const ODD_OPACITY = 0.2;
-
 const StripedDataGrid = styled(DataGrid)(({ theme }) => ({
   [`& .${gridClasses.row}.even`]: {
     backgroundColor: theme.palette.grey[200],
@@ -42,55 +41,51 @@ const StripedDataGrid = styled(DataGrid)(({ theme }) => ({
   },
 }));
 
+// Search bar component
 function QuickSearchToolbar() {
   return (
-    <>
-      <Suspense fallback={<div>Loading...</div>}>
-        <Box
-          sx={{
-            p: 0.5,
-            pb: 0,
-          }}
-        >
-          <GridToolbarQuickFilter />
-        </Box>
-      </Suspense>
-    </>
-
+    <Box
+      sx={{
+        p: 0.5,
+        pb: 0,
+      }}
+    >
+      <GridToolbarQuickFilter />
+    </Box>
   );
 }
 
+// Table component create with MUI
 export default function FilteredTab() {
   const employees = useSelector(state => state.employees);
 
+  // Generation of rows by iterating over the employees array
   const rows = employees.map((employee, index) => {
     employee["id"] = index;
     return employee;
   });
 
+  // Generation of columns by iterating over the tabColumns array
   const columns = tabColumns;
-
   const objet = [];
 
   return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <Box sx={{
-        height: 600, width: 1, maxWidth: 1170,
-        '& .super-app-theme--header': {
-          backgroundColor: '#55326B',
-          color: '#fff'
+    <Box sx={{
+      height: 600, width: 1, maxWidth: 1170,
+      '& .super-app-theme--header': {
+        backgroundColor: '#55326B',
+        color: '#fff'
+      }
+    }} className="table">
+      <StripedDataGrid
+        {...objet}
+        getRowClassName={(params) =>
+          params.indexRelativeToCurrentPage % 2 === 0 ? 'even' : 'odd'
         }
-      }} className="table">
-        <StripedDataGrid
-          {...objet}
-          getRowClassName={(params) =>
-            params.indexRelativeToCurrentPage % 2 === 0 ? 'even' : 'odd'
-          }
-          rows={rows}
-          columns={columns}
-          components={{ Toolbar: QuickSearchToolbar }}
-        />
-      </Box>
-    </Suspense >
+        rows={rows}
+        columns={columns}
+        components={{ Toolbar: QuickSearchToolbar }}
+      />
+    </Box>
   );
 }
