@@ -57,11 +57,12 @@
   .MuiGrid-root.MuiGrid-container.css-10mzr36-MuiGrid-root {
     display: flex;
     flex-direction: column;
+    flex-wrap: nowrap;
   }
 
   .MuiGrid-root.MuiGrid-item.MuiGrid-grid-xs-6.css-1osj8n2-MuiGrid-root {
     max-width: 100%;
-  }
+  }  
 }
 
 

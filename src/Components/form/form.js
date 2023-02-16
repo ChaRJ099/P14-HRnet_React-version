@@ -4,7 +4,7 @@ import { Button, Grid } from "@mui/material";
 import CustomSelect from "../custom-select/custom-select";
 import InputDatePicker from "../date-picker/date-picker";
 import InputGroup from "../input-group/input-group";
-import { LightModal } from "light-modal-test4/dist/light-modal";
+import LightModal from "../../../node_modules/light-modal-test4/dist/light-modal";
 import * as employeeService from "../../services/employee-services";
 import { states, departments } from "../../Data/data-mocked";
 import "./form.scss";
